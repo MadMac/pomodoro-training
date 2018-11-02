@@ -1,0 +1,42 @@
+#timer-circle {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	display: block;
+	background-color: yellowgreen;
+	position: absolute;
+	margin-left: 10px;
+	margin-top: 10px;
+	z-index: 20;
+	clip-path: polygon(0px 200px,200px 200px,200px 100px,0px 100px);
+}
+
+#timer-circle-border {
+	width: 220px;
+	height: 220px;
+	border-radius: 50%;
+	display: block;
+	background-color: orchid;
+	z-index: 10;
+}
+
+#timer-overlay {
+	width: 200px;
+	height: 20px;
+	position: absolute;
+	z-index: 100;
+	background: #282c34;
+}
+
+#timer-controls {
+	margin-top: 30px;
+	display:block;
+	width: 220px;
+	
+}
+
+#timer-controls button {
+	margin-top: 10px;
+	width: 100%;
+	display:block;
+}
