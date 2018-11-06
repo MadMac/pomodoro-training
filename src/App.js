@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import PomoTimer from './objects/pomotimer';
 
 import Timer from './components/timer';
+
+const pomoTimer = new PomoTimer();
 
 class App extends Component {
   render() {
@@ -11,7 +14,7 @@ class App extends Component {
           Pomodoro
         </header>
         <div className="timer-container">
-          <Timer />
+          <Timer pomoTimer={ pomoTimer } />
         </div>
       </div>
     );

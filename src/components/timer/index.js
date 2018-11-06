@@ -66,6 +66,9 @@ class Timer extends Component {
 
 
 	render() {
+
+		console.log(this.props.pomoTimer);
+
 		return (
 			<div>
 				<div id="timer-time">
