@@ -7,6 +7,10 @@ class PomoTimer {
 		return (25 * 60) - this.seconds;
 	}
 
+	@computed get timeleftPercentage() {
+		return  1 - this.seconds / (25 * 60);
+	}
+
 	@computed get timeleftForUI() {
 		
 		let fullSeconds = 25 * 60 - this.seconds;

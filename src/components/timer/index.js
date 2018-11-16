@@ -9,10 +9,7 @@ class Timer extends Component {
 		super(props);
 
 		this.state = {
-			timer: 0,
 			timerId: 0,
-			uiMinutes: "25",
-			uiSeconds: "00",
 		}
 
 	}
@@ -36,11 +33,15 @@ class Timer extends Component {
 	}
 
 	runTimer = () => {
-		console.log(this.props.pomoTimer.timeleftForUI);
 		this.props.pomoTimer.seconds += 1;
 	}
 
 	render() {
+
+		const percentageCircle = 200 - 200 * this.props.pomoTimer.timeleftPercentage;
+		const timerStyle = {
+			clipPath: 'polygon(0px 200px,200px 200px,200px ' + percentageCircle + 'px,0px ' + percentageCircle + 'px)',
+		};
 
 		return (
 			<div>
@@ -50,7 +51,7 @@ class Timer extends Component {
 					</h2>
 				</div>
 				<div id="timer-circle-border">
-					<div id="timer-circle"></div>
+					<div id="timer-circle" style={timerStyle}></div>
 				</div>
 				
 				<div id="timer-controls">

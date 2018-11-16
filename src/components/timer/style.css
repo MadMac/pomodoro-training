@@ -8,7 +8,6 @@
 	margin-left: 10px;
 	margin-top: 10px;
 	z-index: 20;
-	clip-path: polygon(0px 200px,200px 200px,200px 100px,0px 100px);
 }
 
 #timer-circle-border {
