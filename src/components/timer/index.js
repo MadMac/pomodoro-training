@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { observer } from "mobx-react"
 import './style.css';
 
-
+@observer
 class Timer extends Component {
 
 	constructor(props) {
@@ -30,50 +31,22 @@ class Timer extends Component {
 		console.log("stop");
 
 		clearInterval(this.state.timerId);
-		this.setState({
-			timer: 0,
-		})
 
-		this.updateUiTime(25, 0);
+		this.props.pomoTimer.seconds = 0;
 	}
 
 	runTimer = () => {
-		this.setState({
-			timer: this.state.timer + 1,
-		})
-
-		let fullSeconds = 25 * 60 - this.state.timer;
-		
-		let minutes = Math.floor(fullSeconds / 60);
-
-		let seconds = Math.ceil(fullSeconds % (60 * 60) % 60);
-
-		this.updateUiTime(minutes, seconds);
+		console.log(this.props.pomoTimer.timeleftForUI);
+		this.props.pomoTimer.seconds += 1;
 	}
-
-	updateUiTime = (minutes, seconds) => {
-
-		if (seconds < 10) {
-			seconds = "0" + seconds.toString();
-		}
-
-		this.setState({
-			uiMinutes: minutes,
-			uiSeconds: seconds
-		})
-
-	}
-
 
 	render() {
-
-		console.log(this.props.pomoTimer);
 
 		return (
 			<div>
 				<div id="timer-time">
 					<h2>
-						{this.state.uiMinutes} : {this.state.uiSeconds}
+						{this.props.pomoTimer.timeleftForUI}
 					</h2>
 				</div>
 				<div id="timer-circle-border">
