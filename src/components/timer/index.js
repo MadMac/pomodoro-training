@@ -33,25 +33,27 @@ class Timer extends Component {
 	}
 
 	runTimer = () => {
-		this.props.pomoTimer.seconds += 1;
+		this.props.pomoTimer.seconds += 100;
 	}
 
 	render() {
 
-		const percentageCircle = 200 - 200 * this.props.pomoTimer.timeleftPercentage;
+		const percentageCircle = 230 - 230 * this.props.pomoTimer.timeleftPercentage;
 		const timerStyle = {
-			clipPath: 'polygon(0px 200px,200px 200px,200px ' + percentageCircle + 'px,0px ' + percentageCircle + 'px)',
+			clipPath: 'polygon(0px 230px,230px 230px,230px ' + percentageCircle + 'px,0px ' + percentageCircle + 'px)',
 		};
 
 		return (
 			<div>
-				<div id="timer-time">
-					<h2>
-						{this.props.pomoTimer.timeleftForUI}
-					</h2>
-				</div>
+				
 				<div id="timer-circle-border">
-					<div id="timer-circle" style={timerStyle}></div>
+					<div id="timer-circle" style={timerStyle}>
+						
+					</div>
+
+					<div id="timer-time">
+						{this.props.pomoTimer.timeleftForUI}
+					</div>
 				</div>
 				
 				<div id="timer-controls">

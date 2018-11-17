@@ -26,6 +26,6 @@
   ],
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.1.2",
-    "@craco/craco": "^2.0.2"
+    "@craco/craco": "^2.5.0"
   }
 }
