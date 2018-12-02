@@ -34,6 +34,15 @@ class Timer extends Component {
 
 	runTimer = () => {
 		this.props.pomoTimer.seconds += 100;
+
+		if (this.props.pomoTimer.timeleft <= 0) {
+			this.finishTimer();
+		}
+	}
+
+	finishTimer = () => {
+		console.log("Timer finished");
+		clearInterval(this.state.timerId);
 	}
 
 	render() {
@@ -42,6 +51,10 @@ class Timer extends Component {
 		const timerStyle = {
 			clipPath: 'polygon(0px 230px,230px 230px,230px ' + percentageCircle + 'px,0px ' + percentageCircle + 'px)',
 		};
+
+		
+		const isPauseDisabled = !this.props.pomoTimer.isRunning;
+		const isStartDisabled = !isPauseDisabled;
 
 		return (
 			<div>
@@ -57,8 +70,8 @@ class Timer extends Component {
 				</div>
 				
 				<div id="timer-controls">
-					<button id="start-timer" onClick={() => this.startTimer()}>Start</button>
-					<button id="stop-timer" onClick={()=>this.stopTimer()}>Stop</button>
+					<button id="start-timer" onClick={() => this.startTimer()} disabled={isStartDisabled}>Start</button>
+					<button id="stop-timer" onClick={()=>this.stopTimer()} disabled={isPauseDisabled}>Stop</button>
 				</div>
 			</div>
 		)

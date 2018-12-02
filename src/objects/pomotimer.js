@@ -25,6 +25,10 @@ class PomoTimer {
 
 		return minutes + " : " + seconds;
 	}
+
+	@computed get isRunning() {
+		return this.seconds > 0 && this.timeleft !== 0;
+	}
 }
 
 export default PomoTimer;
