@@ -17,6 +17,8 @@ class Timer extends Component {
 	startTimer = () => {
 		console.log("start");
 
+		this.props.pomoTimer.resetTimer();
+
 		let intervalid = setInterval(this.runTimer, 1000);
 
 		this.setState({
@@ -29,11 +31,11 @@ class Timer extends Component {
 
 		clearInterval(this.state.timerId);
 
-		this.props.pomoTimer.seconds = 0;
+		this.props.pomoTimer.resetTimer();
 	}
 
 	runTimer = () => {
-		this.props.pomoTimer.seconds += 100;
+		this.props.pomoTimer.updateTime();
 
 		if (this.props.pomoTimer.timeleft <= 0) {
 			this.finishTimer();

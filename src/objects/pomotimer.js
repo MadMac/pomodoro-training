@@ -1,4 +1,4 @@
-import { observable, computed } from "mobx"
+import { observable, computed, action } from "mobx"
 
 class PomoTimer {
 	@observable seconds = 0;
@@ -28,6 +28,14 @@ class PomoTimer {
 
 	@computed get isRunning() {
 		return this.seconds > 0 && this.timeleft !== 0;
+	}
+
+	@action resetTimer() {
+		this.seconds = 0;
+	}
+
+	@action updateTime() {
+		this.seconds += 100;
 	}
 }
 
