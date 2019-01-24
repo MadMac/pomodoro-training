@@ -35,7 +35,7 @@ class PomoTimer {
 	}
 
 	@action updateTime() {
-		this.seconds += 100;
+		this.seconds += 1;
 	}
 }
 
